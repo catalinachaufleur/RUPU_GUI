@@ -1,0 +1,25 @@
+Pasos seguidos para correr el código de RUPU Raspberry
+
+1.- Como primera indicación, se debe energizar la raspberry activando el interruptor y conectar a pantalla y monitor, una forma alternativa y sugerida es utilizar mobaXterm para realizar la conexión SSH, sin embargo es necesario conocer primero la IP del dispositivo y eso se debe visualizar a través de un monitor.
+
+2.- El código principal es main.py, es importate ejecutarlo como python3, de lo contrario no funcionará.
+
+3.- El código configuración.py cuenta con la sección final "#declaracion de ip" donde se deben escribir las ips de los robots a utilizarse en el experimento.
+
+4.- El código gl.py contiene las funcionalidades editables, para los experimentos realizados en mi memoria se utilizó la siguiente configuración de flags
+
+#flags para debug
+flag_debug = True      #activa los print
+flag_debug_udp = True
+flag_logger = False     #activa que escriba el archivo logger
+flag_ubidots = False    #activa la suscripcion y publicacion en ubidots
+flag_udp = True        #activa comunicacion upd
+flag_calibrar = False   #activa la rutina de calibracion de los sensores IR
+flag_peloton = True     #activa la funcionalidad multiagente
+flag_robot = "L"        #Lider por defecto
+flag_control = True     # activa switche curvatura
+flag_saturacion_predecesor = True  ##activa saturador para PID distancia
+
+5.- La rasperry no reconoce los comando enviados por la GUI debido a que la función  on_message(client, userdata, msg) del código conexion.py está vinculada a flag_ubidots. 
+
+6.-El trabajo futuro debe contemplar realizar una versión de la función configuracion_remota() del código comunicacion.ino que sea decodifique los mensajes UDP recibidos independientemente de la plataforma que se utiliza como dashboard.

@@ -1,0 +1,265 @@
+/* Reset de margenes y paddings */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  /* position: fixed; z-index: 100;*/
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 97%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #800020;
+  color: white;
+  padding: 10px 20px;
+
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+.container {
+  /*margin-top: 70px;*/
+  display: flex;
+  height: 85vh; /* Ajustar la altura de la ventana gráfica */
+}
+
+
+.sidebar {
+  width: 250px;
+  background-color: #f6f8fa;
+  padding: 20px;
+  border-radius: 10px 0 0 10px;
+}
+.sidebar ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #0366d6;
+}
+
+.sidebar ul ul {
+  margin-top: 5px;
+}
+
+.sidebar ul ul li {
+  margin-bottom: 0;
+}
+
+.sidebar ul ul a {
+  font-size: 14px; /* Tamaño de fuente más pequeño para los subtítulos */
+  color: #555; /* Cambiar el color de los subtítulos */
+}
+
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  color: #261a1a;
+}
+
+.content h1 {
+  color: #800020;
+  font-size: 34px;
+}
+.content h2 {
+  color: #800020;
+  font-size: 30px;
+}
+
+.content h3 {
+  color: #800020;
+  font-size: 24px;
+}
+
+.content ul {
+  font-size: 18px;
+  list-style: none;
+  padding-left: 15px;
+  color: #555555;
+}
+.content li {
+  font-size: 24px;
+  text-decoration: none;
+
+  list-style: none;
+  margin-bottom: 10px;
+}
+.content a {
+  text-decoration: none;
+  color: #800020;
+  font-weight: bold;
+}
+.content ul li{
+  margin-top: 10px;
+  font-size: 18px; /* Tamaño de fuente más pequeño para los subtítulos */
+  color: #555; /* Cambiar el color de los subtítulos */
+}
+.content p a{
+  text-decoration: underline;
+  color: #0366d6;
+  font-weight: normal;
+}
+.content ol li {
+  font-size: 16px;
+  text-decoration: none;
+  max-width: 800px;
+  list-style: -moz-ethiopic-numeric;
+  margin-bottom: 10px;
+}
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.header-links a {
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 20px;
+  font-size: 14px;
+
+}
+
+.github img {
+  width: 30px;
+  height: 30px;
+}
+.sidebar-image {
+  text-align: center; /* Centrar horizontalmente */
+  padding: 20px 0; /* Añadir un espacio entre la imagen y el índice */
+}
+
+.sidebar-image img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle; /* Centrar verticalmente */
+}
+
+pre {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 2px;
+  overflow: auto;
+  margin-right: 300px;
+}
+
+code {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+}
+
+
+.centered-image {
+  text-align: center;
+  width: 700px;
+}
+
+
+
+.centered-image img {
+  display: inline-block;
+  max-width: 60%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.content .content-paragraph {
+  margin-top: 20px;
+  margin-bottom: 20px; /* Agregar espacio inferior */
+  max-width: 800px;
+  text-align: justify;
+}
+
+.sidebar .content-paragraph {
+  margin: 0; /* No aplicar márgenes en la barra lateral */
+}
+
+.copy {
+  background-color: #f1efef;
+  color: #211d1d;
+  padding: 5px;
+  border-radius: 2px;
+  overflow: auto;
+  margin: 10px 100px 10px 20px;
+}
+
+.button_next {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f1efef;
+  text-decoration: none;
+  border-radius: 5px;
+  float: right;
+}
+
+.button_prev {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f1efef;
+  text-decoration: none;
+  border-radius: 5px;
+  float: left;
+}
+.custom-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.custom-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+
+}
+.no-number {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.image-paragraph img {
+  width: 300px; /* Ajusta el ancho de la imagen según tus necesidades */
+  padding-right: 10px;
+  float: left; /* Hace que la imagen se alinee a la izquierda del texto */
+  margin-right: 10px; /* Agrega espacio entre la imagen y el texto */
+}
+.table-with-lines {
+  border-collapse: collapse; /* Combina los bordes de las celdas en uno solo */
+  width: 100%; /* Ajusta el ancho de la tabla según tus necesidades */
+}
+
+.table-with-lines td {
+  border: 1px solid #ccc; /* Agrega un borde gris de 1 píxel a las celdas */
+  padding: 8px; /* Espaciado interno para el contenido de las celdas */
+  text-align: center; /* Centra el contenido de las celdas horizontalmente */
+}
+.image-link img {
+  align: center;
+  padding: 15px;
+  width: 400px; /* Ancho deseado para la imagen */
+  height: auto; /* Mantener la relación de aspecto original */
+}

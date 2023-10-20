@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Programación - RÜPÜ</title>
+  <link rel="icon" type="image/x-icon" href="img\iconRupu.ico"/>
+</head>
+<body>
+<header>
+  <div class="logo"><img src="img\logoRupuBlanco.png" alt="Logo" width="100"></div>
+  <nav class="header-links">
+    <a href="Rüpü.html">Sobre el Proyecto</a>
+    <a href="documentation.html">Documentación</a>
+    <a href="https://github.com/catalinachaufleur/RUPU_GUI" target="_blank">
+      <img src="img\github-logo.png" alt="GitHub" width="30" height="30">
+    </a>
+  </nav>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+    <div class="sidebar-image">
+      <img src="img\robot.png" alt="Imagen de la barra lateral" width="70%">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="armado.html">Armar RUPU</a></li>
+        <li>
+          <a href="entorno.html">Entorno de trabajo</a>
+          <ul>
+            <li></li>
+            <li><a href="#instalacion-programas">Instalar programas</a></li>
+            <li><a href="#set-up-arduino">Set up Arduino</a></li>
+            <li><a href="#set-up-python">Set up Python</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="programacion.html">Programación</a>
+          <ul>
+            <li><a href="#cargar-codigo">Configurar los robots</a></li>
+            <li><a href="#gui">Control y monitoreo</a></li>
+          </ul>
+        </li>
+        <li><a href="demo.html">Demostraciones</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Programación</h1>
+
+    <p class="content-paragraph" >
+      Con todos las herramientas de software y librerías instaladas es hora de configurar los robots, a continuación se muestra el paso a paso para poner en marcha la plataforma.
+    </p>
+
+    <h2>Configurar los robots</h2>
+    <ol>
+      <!--Paso 1:elección robots -->
+      <li>Comienza escogiendo los robots que utilizarás y escoge sus posiciones en la pista (líder, segundo, tercero, etc).</li>
+      <div class="centered-image">
+        <img src="img\filarobots.jpg" alt="IP get">
+      </div>
+
+      <!--Paso 2:tabla -->
+      <li>Arma una tabla según el número de robots utilizados con los siguientes datos:</li>
+        <table class="custom-table">
+          <tr>
+            <td>Dispositivo</td>
+            <td>Etiqueta</td>
+            <td>IP</td>
+            <td>Puerto</td>
+          </tr>
+          <tr>
+            <td>Computador</td>
+            <td>Monitor</td>
+            <td> </td>
+            <td>1234</td>
+          </tr>
+          <tr>
+            <td>robot 0</td>
+            <td>L</td>
+            <td> </td>
+            <td>1111</td>
+          </tr>
+          <tr>
+            <td>robot 1</td>
+            <td>S</td>
+            <td> </td>
+            <td>1111</td>
+          </tr>
+          <tr>
+            <td>robot 2</td>
+            <td>T</td>
+            <td> </td>
+            <td>1111</td>
+          </tr>
+        </table>
+
+      <!--Paso 3: ip monitor-->
+      <li> Para conocer la ip del computador que monitoreará los datos se debe acceder a la terminal y ejecutar el siguiente comando según el sistema operativo:</li>
+          <ul>
+            <li class="no-number">Windows:</li>
+            <pre><code>
+  $ ipconfig
+            </code></pre>
+            <li class="no-number">Linux:</li>
+            <pre><code>
+  $ ip a
+            </code></pre>
+          </ul>
+      <p class="content-paragraph">
+        Notar que se debe escoger la ip correspondiente a la red Wifi, la cual tiene el identificador Wireless LAN.
+      </p>
+
+      <div class="centered-image">
+        <img src="img\ipconfig.gif" alt="IP get">
+      </div>
+
+      <!--Paso 4 Configurar código -->
+      <li>Abrir el código control_curvatura.ino, el cual permite configurar los parámetros de Red y las IP asignadas a cada a robot. Se comienza configurando la red Wifi que se está utilizando.</li>
+      <p class="content-paragraph">
+        Antes de cargar el código en cada robot, empezando por el último en la fila, se deben configurar los siguientes parámetros:
+      </p>
+        <ul>
+          <li class="no-number">IP_monitoreo: ip obtenida en el paso 2</li>
+          <li class="no-number">IP_sucesor: utilizar el broadcast de la red</li>
+          <p class="content-paragraph">
+            Aclara acá con un ejemplo
+          </p>
+          <li class="no-number"> EtiquetaRobot: corresponde a la letra escogida para representar al último robot. </li>
+        <p class="content-paragraph"> Notar que la letra "L" no se puede utilizar para el último robot, pues está reservada para el líder</p>
+        </ul>
+
+        <div class="centered-image">
+          <img src="img\wifi.gif" alt="IP get">
+        </div>
+
+      <!--Cargar código-->
+      <li>Luego, se debe conectar el último robot en la fila. Para poder utilizarlo, se debe escoger el Gestor de Tarjeta <b> ESP32 Dev Module</b> y el COM respectivo en el IDE de Arduino </li>
+      <div class="centered-image">
+        <img src="img\com.gif" alt="COM">
+      </div>
+
+      <p class="content-paragraph"> En caso de que no aparezca nada, presiona el botón de reset en la placa</p>
+      <div class="centered-image">
+        <img src="img\reset.gif" alt="reset">
+      </div>
+
+      <li>Con la IP asignada al último robot, se debe editar nuevamente el código para cargarlo en el siguiente robot en la línea (de atrás hacia adelante). Al editar el código se debe tener en cuenta que:</li>
+        <ul class="no-number">
+          <li> IP_sucesor: corresponde a lP obtenida en el paso 6, es decir, la IP de robot sucesor en la línea</li>
+          <li>  debe cambiar la variable etiquetaRobot por un nueva letra identificadora </li>
+        </ul>
+
+      <li> Se sube el código y se verifica la IP obtenida en el monitor serial.</li>
+        <div class="centered-image">
+          <img src="img\iprobot2.gif" alt="siguiente robot">
+        </div>
+
+      <li> Con la IP obtenida de este nuevo robot, se repiten los pasos 7, 8 y 9 hasta llegar al <b>robot líder</b> cuya variable <b>etiquetaRobot</b> debe ser la letra "L"</li>
+      <li>Finalmente, una vez se h subi el código en cada uno de los robots y habiendo completado la tabla con la información sobre la IP de cada uno, es momento de posicionar los robots en la pista, encendiendo los interruptores ubicados en el costado derecho</li>
+      <div class="centered-image">
+        <img src="img\posicionar.gif" alt="siguiente robot">
+      </div>
+    </ol>
+
+    <p class="content-paragraph">
+      Las instrucciones descritas anteriormente cuentan con el siguiente video tutorial.
+    </p>
+
+    <div class="centered-image">
+      <a href="https://youtu.be/dDjok7HUWV8" class="image-link ">
+        <img src="img\demo1.jpg" alt="Demo 1 ">
+      </a>
+    </div>
+
+
+    <h2> Control y monitoreo </h2>
+    <p class="content-paragraph">
+      El primer paso para controlar los dispositivos es ejecutar el código RupuGUI.py disponible en el repositorio GIT de RUPU. Para esto, hay que descargar el código y, si seguiste las instrucciones de la sección <a href="entorno.html">Entorno de trabajo</a> entonces sólo debes darle doble click al programa para que se abra la siguiente ventana.
+    </p>
+
+    <ol>
+      <div class="centered-image">
+        <img src="img\gui.jpg" alt="gui config">
+      </div>
+      <li> Luego, se debe setear el número de robots a utilizar.</li>
+      <div class="centered-image">
+        <img src="img\gui_robots.gif" alt="gui robots">
+      </div>
+      <li> Considerando el cuadro de IP realizado en la sección de Configuración, se deben completar las entradas IP de cada robot junto a su respectiva etiqueta. No olvidar guardar la configuración y en caso de que no se hayas hecho antes, se deben calibrar los robots cada vez que se encienden o reinician.</li>
+      <div class="centered-image">
+        <img src="img\gui_ip.gif" alt="gui ip">
+      </div>
+      <li> Una vez que la calibración se realiza por todos los agentes de forma exitosa, entonces es posible controlar la plataforma accediendo a la pestaña de Control</li>
+      <div class="centered-image">
+        <img src="img\gui_control.gif" alt="gui control tab">
+      </div>
+    </ol>
+
+    <p class="content-paragraph"> En la interfaz es posible iniciar o detener a los agentes y enviar comandos a cada uno de ellos según la etiqueta escogida. Además, el botón Monitorear Señal permite visualizar la distancia del predecesor, la velocidad y la orientación del robot indicado por la etiqueta.</p>
+
+    <a href="entorno.html" class="button_prev"> << Volver a Entorno de trabajo  </a>
+    <a href="demo.html" class="button_next">Continuar a Demostraciones >> </a>
+
+
+
+  </main>
+</div>
+
+</body>
+</html>
