@@ -1,1 +1,0 @@
-Para saber como configurar correctamente la GUI, es necesario revisar la página web de RUPU, contenida en este Git
