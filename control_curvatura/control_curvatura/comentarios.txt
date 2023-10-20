@@ -1,0 +1,60 @@
+    /*for (int i = 0; i < len; i++) {
+      char nuevo = incomingPacket[i];
+      mensaje.concat(nuevo);
+    }
+    if(incomingPacket[1]=='M'){
+      Serial.println("caca");
+    }
+    if(mensaje[0]=='L'){
+      //estado=String(Input_vel);
+      estado="LECTURA";
+      estado.toCharArray(msg, estado.length() + 1);
+      udp.beginPacket(udp.remoteIP(), udp.remotePort());
+      udp.printf(msg);
+      udp.endPacket();
+    }
+  }
+}*/
+/*
+void udp_recep(){
+ int packetSize = udp.parsePacket();
+  
+if (packetSize)
+{
+  // receive incoming UDP packets
+  Serial.printf("Received %d bytes from %s, port %d\n", packetSize, udp.remoteIP().toString().c_str(), udp.remotePort());
+  int len = udp.read(incomingPacket, 255);
+  if (len > 0)
+  {
+    incomingPacket[len] = 0;
+  }
+  Serial.printf("UDP packet contents: %s\n", incomingPacket);
+  String mensaje;
+  for (int i = 0; i < len; i++) {
+    char nuevo = incomingPacket[i];
+    mensaje.concat(nuevo);
+  }
+  vel_crucero = mensaje.toFloat();
+}
+}*/
+
+
+
+
+/*void udp_monitor(){
+time_now = millis() - t_old;
+if(time_now>=20){
+  estado = "S,"+String(Input_d)+","+String(d_ref)+","+String(vel_ref)+","+String(Input_vel)+","+String(v_r[0])+","+String(v_l[0])+",";
+  estado.toCharArray(msg, estado.length() + 1);  
+  udp.beginPacket(IP_monitoreo,puerto_monitoreo);
+  udp.printf(msg);      //
+  udp.endPacket();
+  estado = String(curva)+","+String(alpha_fuzzy)+","+String(Output_vel)+","+String(Input_theta)+","+String(theta_ref)+","+String(Output_theta)+",E";
+  estado.toCharArray(msg, estado.length() + 1);  
+  udp.beginPacket(IP_monitoreo,puerto_monitoreo);
+  udp.printf(msg);      //
+  udp.endPacket();
+  t_old = millis(); 
+}
+}
+*/

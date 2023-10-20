@@ -1,0 +1,12 @@
+Para procesar los videos se deben cumplir las siguientes condiciones:
+
+-Iluminación indirecta y uniforme
+-La luz no debe reflejar las placas
+-Si bien se puede grabar con la GoPro, es necesario hacerlo desde muy arriba para después editar y recortar el video, es recomendable usar el celular porque captura mejor la iluminación de los LEDs
+-No olvidar poner un cuadrado de referencia de 5x5cm
+
+Cómo procesar los videos en la carpeta Procesamiento de Datos: 
+
+-Esta versión del código soporta 3 dispositivos
+-El código writetrack.py se debe ejecutar con un video que contenga sólo una vuelta de los robots, eso se edita dentro del código
+-En código main se debe utilizar el nombre del archivo generado en .csv por el código anterior y el video que se busca procesar

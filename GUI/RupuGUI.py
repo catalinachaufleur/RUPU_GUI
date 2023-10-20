@@ -496,11 +496,11 @@ class App(customtkinter.CTk):
         axes[0].set_xlim(0, 100)
         axes[0].set_ylim(0, 30)
 
-        axes[1].set_title('Distancia Predecesor', fontsize=12)
+        axes[1].set_title('Distancia predecesor', fontsize=12)
         axes[1].set_xlim(0, 100)
         axes[1].set_ylim(0, 20)
 
-        axes[2].set_title('Ángulo de inclinación', fontsize=12)
+        axes[2].set_title('Ángulo de orientación', fontsize=12)
         axes[2].set_xlim(0, 100)
         axes[2].set_ylim(-1, 1)
         
